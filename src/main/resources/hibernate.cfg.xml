@@ -20,6 +20,7 @@
 
         <!-- Entity mapping -->
         <mapping class="com.hibernate.entities.Student"/>
+        <mapping class="com.hibernate.entities.Certificate"/>
 
     </session-factory>
 </hibernate-configuration>

@@ -2,6 +2,9 @@ package com.hibernate.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name="student")
 public class Student {
@@ -22,6 +25,10 @@ public class Student {
 
     @Lob
     private String about;
+
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Certificate> certificates = new ArrayList<>();
+
 
     public String getAbout() {
         return about;
@@ -69,5 +76,13 @@ public class Student {
 
     public void setStudentId(long studentId) {
         this.studentId = studentId;
+    }
+
+    public List<Certificate> getCertificates() {
+        return certificates;
+    }
+
+    public void setCertificates(List<Certificate> certificates) {
+        this.certificates = certificates;
     }
 }

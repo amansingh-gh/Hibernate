@@ -1,5 +1,6 @@
 package com.hibernate;
 
+import com.hibernate.entities.Certificate;
 import com.hibernate.entities.Student;
 import com.hibernate.utils.HybernateUtil;
 import org.hibernate.Session;
@@ -11,11 +12,26 @@ public class App {
         System.out.println( "Hello World!" );
         // create student
         Student student = new Student();
-        student.setName("Amn");
-        student.setCollege("XYZ College");
-        student.setAbout("This is about section of student");
+        student.setName("bcdsdsd");
+        student.setCollege("dj CLG");
+        student.setAbout("NPOO");
         student.setActive(true);
-        student.setPhone("1234567890");
+        student.setPhone("1000");
+
+        Certificate certificate = new Certificate();
+        certificate.setTitle("cer ");
+        certificate.setAbout("cer ");
+        certificate.setLink("cer ");
+        certificate.setStudent(student);
+
+        Certificate certificate1 = new Certificate();
+        certificate1.setTitle("cer 1");
+        certificate1.setAbout("cer 1");
+        certificate1.setLink("cer 1");
+        certificate1.setStudent(student);
+
+        student.getCertificates().add(certificate);
+        student.getCertificates().add(certificate1);
 
         // save : hibernate
 //        Create sessionFactory
